@@ -14,6 +14,7 @@ function FourthPage({ setOpen }) {
         width={1024}
         height={736}
         className="absolute top-0 left-0 z-30"
+        alt="bg4"
       />
       <div className="relative w-full h-full ">
         {/* container with lower z-index */}
@@ -72,6 +73,7 @@ function FourthPage({ setOpen }) {
               height={15}
               className="self-start rotate-180 cursor-pointer"
               onClick={() => setFirstPoints(true)}
+              alt="pagination-left"
             />
             <div className="flex gap-x-[10px]  shrink-0">
               <div
@@ -95,6 +97,7 @@ function FourthPage({ setOpen }) {
               height={15}
               className="self-start cursor-pointer"
               onClick={() => setFirstPoints(false)}
+              alt="pagination-right"
             />
           </div>
         </div>

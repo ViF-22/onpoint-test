@@ -167,7 +167,11 @@ function Carousel(props) {
   ];
 
   const displayItems = pages.map((page, index) => (
-    <div className={classes.CarouselItem} id={`carouselitem` + index}>
+    <div
+      className={classes.CarouselItem}
+      id={`carouselitem` + index}
+      key={index}
+    >
       {page}
     </div>
   ));

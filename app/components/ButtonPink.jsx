@@ -8,7 +8,12 @@ function ButtonPink({ nextSlideHandler }) {
       onClick={() => nextSlideHandler()}
     >
       <div className="rounded-full bg-[#171717] text-white w-[50px] h-[49px] flex items-center justify-center btn-shadow btn-shadow-2">
-        <Image src="/images/first/arrow.png" width={19} height={14} />
+        <Image
+          src="/images/first/arrow.png"
+          width={19}
+          height={14}
+          alt="arrow"
+        />
       </div>
       Что дальше?
     </button>
@@ -24,7 +29,7 @@ export function ButtonPinkMore({ setOpen }) {
       onClick={() => setOpen(true)}
     >
       <div className="rounded-full bg-[#171717] text-white w-[50px] h-[49px] flex items-center justify-center btn-shadow btn-shadow-2">
-        <Image src="/images/third/plus.png" width={19} height={14} />
+        <Image src="/images/third/plus.png" width={19} height={14} alt="plus" />
       </div>
       Подробнее
     </button>

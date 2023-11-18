@@ -173,6 +173,7 @@ function ThirdPage() {
               width={67}
               height={63}
               className="absolute -top-[33px]"
+              alt="icon2"
             />
             <p className="w-[229px] ">
               Ehicula ipsum a arcu cursus vitae. Eu non diam phasellus
@@ -187,6 +188,7 @@ function ThirdPage() {
                 width={70}
                 height={57}
                 className="absolute -top-[35px]"
+                alt="icon1"
               />
               <p className="w-[134px]">A acru cursus vitae</p>
             </div>
