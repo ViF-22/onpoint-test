@@ -161,9 +161,9 @@ function Carousel(props) {
   };
 
   const pages = [
-    <FirstPage nextSlideHandler={nextSlideHandler} />,
-    <SecondPage />,
-    <ThirdPage />,
+    <FirstPage nextSlideHandler={nextSlideHandler} key={"fp"} />,
+    <SecondPage key={"sp"} />,
+    <ThirdPage key={"thp"} />,
   ];
 
   const displayItems = pages.map((page, index) => (
