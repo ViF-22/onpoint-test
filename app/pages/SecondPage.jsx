@@ -61,8 +61,11 @@ function SecondPage() {
   return (
     <div className="flex flex-col flex-shrink-0 relative pt-[158px] pl-[74px] h-full w-full bg-bg2 gap-y-[33px] whitespace-normal">
       <p className="uppercase w-[180px] text-[22px]">текст сообщения</p>
-      <div className="w-[775px] h-[445px] bg-white rounded-3xl overflow-y-scroll overflow-x-hidden shadow-md p-[30px] dir-rtl scrollbar z-10 relative">
-        <p className="dir-ltr text-[20px]">
+      {/* white bg for text */}
+      <div className="ml-[48px] w-[775px] h-[445px] bg-white rounded-3xl shadow-md] dir-rtl z-10 relative"></div>
+      {/* overlay with text and scroll bar */}
+      <div className="w-[825px] h-[445px] overflow-y-scroll dir-rtl z-[30] scrollbar bg-transparent absolute bottom-[65px] px-[53px] py-[30px]">
+        <p className="dir-ltr text-[22px] z-[35]">
           <span className="font-bold">Lorem ipsum dolor sit amet,</span>{" "}
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -106,6 +109,7 @@ function SecondPage() {
           sunt in culpa qui officia deserunt mollit anim id est laborum."
         </p>
       </div>
+    
       {/* details */}
       <Image
         src="/images/second/layer3_6.png"

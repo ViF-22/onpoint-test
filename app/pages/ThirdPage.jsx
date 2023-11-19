@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import ButtonPink, { ButtonPinkMore } from "../components/ButtonPink";
 import FourthPage from "./FourthPage";
@@ -7,9 +7,9 @@ import { useState } from "react";
 import gsap from "gsap";
 
 function ThirdPage() {
+  const third = useRef(null);
   const [open, setOpen] = useState(false);
-  const tl1 = gsap.timeline({ repeat: -1, yoyo: true });
-
+//refs
   const bubble1 = useRef(null);
   const bubble2 = useRef(null);
   const bubble3 = useRef(null);
@@ -18,67 +18,56 @@ function ThirdPage() {
   const bubble6 = useRef(null);
   const bubble7 = useRef(null);
   const bubble8 = useRef(null);
+ 
+  useEffect(() => {
+    gsap.timeline({ repeat: -1, yoyo: true }).to(bubble1.current, {
+      yPercent: 40,
+      xPercent: -40,
+      duration: 3,
+      ease: "power1.in",
+    }).to(bubble2.current, {
+      yPercent: 40,
+      xPercent: 60,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble3.current, {
+      yPercent: 20,
+      xPercent: 70,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble4.current, {
+      yPercent: -30,
+      xPercent: 20,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble5.current, {
+      yPercent: -20,
+      xPercent: 20,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble6.current, {
+      scale: 0.8,
+      yPercent: -5,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble7.current, {
+      yPercent: -10,
+      xPercent: 20,
+      duration: 3,
+       ease: "power1.in",
+    }, '<').to(bubble8.current, {
+      yPercent: 15,
+      xPercent: 10,
+      duration: 3,
+       ease: "power1.in",
+    },'<')
+  }, []);
 
-  const bubble1Anim = gsap.to(bubble1.current, {
-    yPercent: 40,
-    xPercent: -40,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble2Anim = gsap.to(bubble2.current, {
-    yPercent: 40,
-    xPercent: 60,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble3Anim = gsap.to(bubble3.current, {
-    yPercent: 20,
-    xPercent: 70,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble4Anim = gsap.to(bubble4.current, {
-    yPercent: -30,
-    xPercent: 20,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble5Anim = gsap.to(bubble5.current, {
-    yPercent: -20,
-    xPercent: 20,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble6Anim = gsap.to(bubble6.current, {
-    scale: 0.8,
-    yPercent: -5,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble7Anim = gsap.to(bubble7.current, {
-    yPercent: -10,
-    xPercent: 20,
-    duration: 3,
-    ease: "power1",
-  });
-  const bubble8Anim = gsap.to(bubble8.current, {
-    yPercent: 15,
-    xPercent: 10,
-    duration: 3,
-    ease: "power1",
-  });
-
-  tl1
-    .add(bubble1Anim)
-    .add(bubble2Anim, "<")
-    .add(bubble3Anim, "<")
-    .add(bubble4Anim, "<")
-    .add(bubble5Anim, "<")
-    .add(bubble6Anim, "<")
-    .add(bubble7Anim, "<")
-    .add(bubble8Anim, "<");
   return (
-    <div className="flex flex-col  h-full w-full bg-bg3 flex-shrink-0 relative gap-y-[90px] whitespace-normal">
+    <div
+      className="flex flex-col  h-full w-full bg-bg3 flex-shrink-0 relative gap-y-[90px] whitespace-normal"
+      ref={third}
+    >
       {/* bottle with bubbles */}
       <div className="w-full h-full absolute bottom-0 left-0">
         <Image

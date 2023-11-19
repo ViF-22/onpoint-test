@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import ButtonPink from "../components/ButtonPink";
 import gsap from "gsap";
@@ -8,13 +8,10 @@ function FirstPage({ nextSlideHandler }) {
   const layer4 = useRef(null);
   const layer8 = useRef(null);
   const layer5 = useRef(null);
-  const tl1 = gsap.timeline({ repeat: -1, yoyo: true });
-  const tl2 = gsap.timeline({ repeat: -1, yoyo: true });
-  const tl3 = gsap.timeline({ repeat: -1, yoyo: true });
-  const tl4 = gsap.timeline({ repeat: -1, yoyo: true });
 
-  const baktiAnim = gsap
-    .timeline()
+  useEffect(() => {
+    const baktiAnim = gsap
+    .timeline({ repeat: -1, yoyo: true })
     .to(bakti1.current, {
       yPercent: -10,
       xPercent: -10,
@@ -27,56 +24,56 @@ function FirstPage({ nextSlideHandler }) {
       duration: 7,
       ease: "power1.out",
     });
-
-  const layer4Anim = gsap.to(layer4.current, {
+  
+  const layer4Anim = gsap.timeline({ repeat: -1, yoyo: true }).to(layer4.current, {
     scale: 1.1,
     duration: 4,
     xPercent: -10,
     ease: "power1.out",
   });
 
-  const layer8Anim = gsap
-    .timeline()
-    .to(layer8.current, {
-      yPercent: 10,
-      xPercent: -40,
-      duration: 2,
-      rotation: 30,
-      // ease: "power1.out",
-    })
-
-    .to(layer8.current, {
-      yPercent: -60,
-      xPercent: -70,
-      duration: 4,
-      rotation: 60,
-      ease: "power1.in",
-    })
-    .to(layer8.current, {
-      yPercent: -30,
-      xPercent: 10,
-      duration: 3,
-      rotation: 90,
-      ease: "power1.inOut",
-    })
-    .to(layer8.current, {
-      yPercent: 0,
-      xPercent: 0,
-      duration: 2,
-      rotation: 120,
-      ease: "power1.out",
-    });
-
-  const layer5Anim = gsap.timeline().to(layer5.current, {
-    xPercent: 40,
-    yPercent: 60,
-
+const layer8Anim = gsap
+  .timeline()
+  .to(layer8.current, {
+    yPercent: 10,
+    xPercent: -40,
+    duration: 2,
+    rotation: 30,
+  })
+  .to(layer8.current, {
+    yPercent: -60,
+    xPercent: -70,
+    duration: 4,
+    rotation: 60,
+    ease: "power1.in",
+  })
+  .to(layer8.current, {
+    yPercent: -30,
+    xPercent: 10,
     duration: 3,
+    rotation: 90,
+    ease: "power1.inOut",
+  })
+  .to(layer8.current, {
+    yPercent: 0,
+    xPercent: 0,
+    duration: 2,
+    rotation: 120,
+    ease: "power1.out",
   });
-  tl1.add(baktiAnim);
-  tl2.add(layer4Anim);
-  tl3.add(layer8Anim);
-  tl4.add(layer5Anim);
+
+const layer5Anim = gsap.timeline().to(layer5.current, {
+  xPercent: 40,
+  yPercent: 60,
+
+  duration: 3,
+});
+  }, []);
+
+ 
+
+
+
 
   return (
     <div className="flex flex-col uppercase relative  pl-[74px] pt-[181px] flex-shrink-0 bg-bg1 gap-y-[33px] w-[1024px] h-[768px] whitespace-normal ">

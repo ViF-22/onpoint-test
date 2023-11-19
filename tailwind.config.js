@@ -12,6 +12,9 @@ module.exports = {
         bg2: "url('/images/second/bg2.png')",
         bg3: "url('/images/third/bg3.png')",
       },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif']
+      },
     },
   },
   plugins: [],
